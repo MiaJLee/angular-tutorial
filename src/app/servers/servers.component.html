@@ -1,4 +1,8 @@
 <p>{{ serverCreationStatus }}.</p>
-<input type="text" class="form-control" (input)="onUpdateServerName($event)">
-<p>{{ serverName }}</p>
+<input type="text" class="form-control" [(ngModel)]="serverName">
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add Server</button>
+
+<span>username</span>
+<input type="text" class="form-control" [(ngModel)]="username">
+<p>{{username}}</p>
+<button class="btn btn-primary" [disabled]="!username.length" (click)="onClickButton()">delete username</button>
