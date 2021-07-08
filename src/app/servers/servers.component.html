@@ -7,8 +7,4 @@
     No server was created!
   </p>
 </ng-template>
-
-<span>username</span>
-<input type="text" class="form-control" [(ngModel)]="username">
-<p>{{username}}</p>
-<button class="btn btn-primary" [disabled]="!username.length" (click)="onClickButton()">delete username</button>
+<app-server *ngFor="let server of servers"></app-server>
