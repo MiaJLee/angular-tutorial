@@ -8,3 +8,13 @@
   </p>
 </ng-template>
 <app-server *ngFor="let server of servers"></app-server>
+<hr>
+
+<button class="btn btn-primary" (click)="toggleDetail()">Display Details</button>
+<span *ngIf="showDetail">this is detail</span>
+
+<p 
+*ngFor="let log of toggleLog; index as i"
+[ngStyle]="{backgroundColor: getColor(i)}"
+[ngClass]="{fifth: i >= 4}"
+>{{ log }}</p>

@@ -3,7 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-servers',
   templateUrl: './servers.component.html',
-  styleUrls: ['./servers.component.css']
+  styles: [`
+  .fifth {
+    color: white;
+  }
+  `]
 })
 export class ServersComponent implements OnInit {
   allowNewServer = false;
@@ -12,12 +16,20 @@ export class ServersComponent implements OnInit {
   username = "";
   serverCreated = false;
   servers = ['beta', 'test'];
+  showDetail = false;
+  toggleLog: string[] = [];
 
   constructor() {
     setTimeout(() =>{this.allowNewServer = true}, 2000)
    }
 
   ngOnInit(): void {
+  }
+
+  toggleDetail() {
+    this.showDetail = !this.showDetail;
+    const time = new Date();
+    this.toggleLog.push(time.toString());
   }
 
   onCreateServer() {
@@ -32,5 +44,12 @@ export class ServersComponent implements OnInit {
 
   onClickButton() {
     this.username = '';
+  }
+
+  getColor(i: number) {
+    if (i >= 4) {
+      return 'blue';
+    }
+    return; 
   }
 }
